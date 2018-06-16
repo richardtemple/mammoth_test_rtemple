@@ -13,14 +13,17 @@ describe OrderGenerator do
 
     describe "valid attributes" do
     	it "should have valid values for each attribute" do
-    		assert_includes(1..100, 
+    		assert_includes(1..1800, 
     										@orders[0].quantity, 
     										msg = "should be a number between 1 and 100")
-    		assert_includes(OrderGenerator::PROGRAM_TYPES, 
+    		assert_includes(OrderGenerator::PROGRAM_TYPES.keys, 
     										@orders[0].program_type, 
-    										msg = "should be a number between 1 and 100")
+    										msg = "should be a valid program type")
+    		assert_includes(OrderGenerator::PROGRAM_TYPES[@orders[0].program_type], 
+    										@orders[0].seller, 
+    										msg = "should be a valid seller")
+    		assert(@orders[0].amount_paid > @orders[0].quantity * 39, "amount paid is off")
     	end
     end
-
   end
 end
