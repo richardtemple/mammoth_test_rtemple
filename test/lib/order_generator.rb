@@ -20,7 +20,7 @@ class OrderGenerator
 													program_type: program_type,
 													seller: seller,
 													amount_paid: amount_paid)
-			puts "amount_paid = #{amount_paid}, program_type = #{program_type}, seller = #{seller}, quantity = #{quantity}"
+			# puts "amount_paid = #{amount_paid}, program_type = #{program_type}, seller = #{seller}, quantity = #{quantity}"
 		end
 		orders
 	end

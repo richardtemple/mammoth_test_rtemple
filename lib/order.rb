@@ -1,6 +1,6 @@
 class Order
 
-	attr_accessor :quantity, :program_type, :amount_paid, :seller
+	attr_reader :quantity, :program_type, :amount_paid, :seller
 
 	def initialize(quantity: nil, program_type: nil, seller: nil, amount_paid: nil)
 		@quantity = quantity
