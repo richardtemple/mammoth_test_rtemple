@@ -1,19 +1,34 @@
 class ReportBuilder
 
-	def create_report(data:)
+	def create_amount_to_bill_report(data:)
+		
 		report = {}
 		
-		x = 1
-		
-		groups = data.group_by do |order|
+		seller_groups = data.group_by do |order|
 			order.seller
 		end
 
-		groups.each do |data_set| 
-			report[data_set[0]] = 0
+		seller_groups.each do |data_set| 
+			next if data_set[0] == "Direct"
+			report[data_set[0]] = {}
+			report[data_set[0]][:quantity] = 0
 			data_set[1].each do |order|
-				report[order.seller] +=  order.quantity
-				x += 1
+				report[order.seller][:quantity] +=  order.quantity
+				report[order.seller][:program_type] = order.program_type
+			end
+		end
+
+		report.each do |seller|
+			if seller[1][:program_type] == :affiliates
+				if seller[1][:quantity] > 1000
+					seller[1][:amount_to_bill] = seller[1][:quantity] * 40
+				elsif seller[1][:quantity] > 800
+					seller[1][:amount_to_bill] = seller[1][:quantity] * 50
+				else
+					seller[1][:amount_to_bill] = seller[1][:quantity] * 60
+				end
+			else
+				seller[1][:amount_to_bill] = seller[1][:quantity] * 50
 			end
 		end
 		report
