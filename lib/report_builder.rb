@@ -1,45 +1,45 @@
+require_relative "helpers/partner_helper"
+require 'partner'
+require 'affiliate'
+require 'reseller'
+require 'direct'
+
 class ReportBuilder
 
 	def create_amount_to_bill_report(data:)
 		
 		report = {}
+		partners = []
 		
-		seller_groups = data.group_by do |order|
-			order.seller
+	  data.uniq {|order| order.partner_name}.each do |real_order|
+	  	next if real_order.program_type == :direct
+	  	my_klass = Object.const_get(real_order.program_type.to_s.capitalize)
+
+	  	partners << my_klass.new(partner_name: real_order.partner_name, 
+												amount_charges_per_item: PartnerHelper.determine_amount_charges(
+																								program_type: real_order.program_type,
+																							  partner_name: real_order.partner_name)
+																								)
+	  end
+
+		data.each do |order| 
+			next if order.program_type == :direct
+			partners.select {|partner| partner.partner_name == order.partner_name}.first.orders << order
 		end
 
-		seller_groups.each do |data_set| 
-			next if data_set[0] == "Direct"
-			report[data_set[0]] = {}
-			report[data_set[0]][:quantity] = 0
-			data_set[1].each do |order|
-				report[order.seller][:quantity] +=  order.quantity
-				report[order.seller][:program_type] = order.program_type
-			end
+		partners.each do |partner|
+			report[partner.partner_name] = {}
+
+			report[partner.partner_name][:amount_to_bill] = partner.amount_due
 		end
 
-		report.each do |seller|
-			if seller[1][:program_type] == :affiliates
-				if seller[1][:quantity] > 1000
-					seller[1][:amount_to_bill] = seller[1][:quantity] * 40
-				elsif seller[1][:quantity] > 800
-					seller[1][:amount_to_bill] = seller[1][:quantity] * 50
-				else
-					seller[1][:amount_to_bill] = seller[1][:quantity] * 60
-				end
-			else
-				seller[1][:amount_to_bill] = seller[1][:quantity] * 50
-			end
-		end
-
-		# should I remove superfluous data?
 		report
 	end
 
 	def create_partner_profit_report(data:)
 		report = {}
 		seller_groups = data.group_by do |order|
-			order.seller
+			order.partner_name
 		end
 
 		seller_groups.each do |data_set| 
@@ -47,24 +47,11 @@ class ReportBuilder
 			report[data_set[0]] = {}
 			report[data_set[0]][:quantity] = 0
 			data_set[1].each do |order|
-				report[order.seller][:quantity] +=  order.quantity
-				report[order.seller][:program_type] = order.program_type
+				report[order.partner_name][:quantity] +=  order.quantity
+				report[order.partner_name][:program_type] = order.program_type
 			end
 		end
 
-		# report.each do |seller|
-		# 	if seller[1][:program_type] == :affiliates
-		# 		if seller[1][:quantity] > 1000
-		# 			seller[1][:amount_to_bill] = (seller[1][:quantity] *(seller[1][:quantity] * 40) 
-		# 		elsif seller[1][:quantity] > 800
-		# 			seller[1][:amount_to_bill] = seller[1][:quantity] * 50
-		# 		else
-		# 			seller[1][:amount_to_bill] = seller[1][:quantity] * 60
-		# 		end
-		# 	else
-		# 		seller[1][:amount_to_bill] = seller[1][:quantity] * 50
-		# 	end
-		# end
 		report
 	end
 end

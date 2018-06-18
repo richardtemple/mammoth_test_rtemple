@@ -20,7 +20,7 @@ describe OrderGenerator do
     										@orders[0].program_type, 
     										msg = "should be a valid program type")
     		assert_includes(OrderGenerator::PROGRAM_TYPES[@orders[0].program_type], 
-    										@orders[0].seller, 
+    										@orders[0].partner_name, 
     										msg = "should be a valid seller")
     		assert(@orders[0].amount_paid > @orders[0].quantity * 39, "amount paid is off")
     	end

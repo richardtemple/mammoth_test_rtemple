@@ -1,11 +1,11 @@
 class Order
 
-	attr_reader :quantity, :program_type, :amount_paid, :seller
+	attr_reader :quantity, :program_type, :amount_paid, :partner_name
 
-	def initialize(quantity: nil, program_type: nil, seller: nil, amount_paid: nil)
+	def initialize(quantity: nil, program_type: nil, partner_name: nil, amount_paid: nil)
 		@quantity = quantity
 		@program_type = program_type
-		@seller = seller
+		@partner_name = partner_name
 		@amount_paid = amount_paid
 	end
 end

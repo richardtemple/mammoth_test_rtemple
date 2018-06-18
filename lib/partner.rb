@@ -1,9 +1,10 @@
 class Partner
 	attr_reader :partner_name, :amount_due, :profit
+	attr_accessor :orders
 	def initialize(partner_name:, orders: [], amount_charges_per_item:)
 		@partner_name = partner_name
 		@orders = orders
-		@amount_charges_per_item
+		@amount_charges_per_item = amount_charges_per_item
 	end
 
 	def add_order(new_order)
@@ -11,7 +12,6 @@ class Partner
 	end
 
 	def total_orders
-		# require 'pry';binding.pry
 		orders_count = 0
 		@orders.each do |order|
 			orders_count += order.quantity
