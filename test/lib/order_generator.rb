@@ -1,7 +1,5 @@
 class OrderGenerator
 
-	# DIRECT_TYPE_INFO = [{name: "Direct", amount_each: 100}]
-	# AFFILIATE_TYPE_INFO = [{name: "ACompany", amount_each: , "AnotherCompany", "EvenMoreCompany"}
 	PROGRAM_TYPES = {direct: ["Direct"], 
 									 affiliates: ["ACompany", "AnotherCompany", "EvenMoreCompany"],
 									 resellers: ["ResellThis", "SellMoreThings"]}
@@ -20,7 +18,6 @@ class OrderGenerator
 													program_type: program_type,
 													seller: seller,
 													amount_paid: amount_paid)
-			# puts "amount_paid = #{amount_paid}, program_type = #{program_type}, seller = #{seller}, quantity = #{quantity}"
 		end
 		orders
 	end
@@ -29,16 +26,20 @@ class OrderGenerator
 		
 		price_per_widget = 0
 		
-		if (program_type = :affiliates)
-			if quantity > 1000
-				price_per_widget = 40
-			elsif quantity > 500
-				price_per_widget = 50
+		if (program_type == :affiliates)
+			if seller == "ACompany"
+				price_per_widget = 75
+			elsif seller == "AnotherCompany"
+				price_per_widget = 65
 			else
-				price_per_widget = 60
+				price_per_widget = 80
 			end
 		elsif (program_type == :resellers)
-			price_per_widget = 50
+			if seller == "ResellThis"
+				price_per_widget = 75
+			else
+				price_per_widget = 85
+			end
 		else
 			price_per_widget = 100 # direct
 		end
