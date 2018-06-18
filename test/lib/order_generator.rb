@@ -9,7 +9,7 @@ class OrderGenerator
 		orders = []
 
 		100.times do
-			quantity = rand(80) + 1
+			quantity = rand(100) + 1
 			program_type = PROGRAM_TYPES.keys.sample
 			seller = PROGRAM_TYPES[program_type].sample 
 			amount_paid = determine_amount_paid(program_type: program_type, seller: seller, quantity: quantity)
