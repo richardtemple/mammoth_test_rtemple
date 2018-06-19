@@ -63,7 +63,7 @@ class ReportBuilder
 	end
 
   ##
-  # creates a ruby hash containing the revenue for each program type with a total revenue.
+  # Returns a ruby hash containing the revenue for each program type with a total revenue
   #
 	def create_revenue_report
 		report = {}
