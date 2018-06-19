@@ -53,6 +53,9 @@ describe ReportBuilder do
       puts "Profit report: #{report}"
       assert report.count > 0
     end
+
+    it "neeeds more tests" do
+    end
   end
 
   describe "build revenue report" do
@@ -60,6 +63,9 @@ describe ReportBuilder do
       report = @report_builder.create_revenue_report
       puts "Revenue report: #{report}"
       assert report.count > 0
+    end
+    
+    it "neeeds more tests" do
     end
   end
 end	
