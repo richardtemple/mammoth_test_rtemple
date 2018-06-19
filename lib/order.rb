@@ -1,3 +1,6 @@
+##
+# Information received as an order from either affiliates, resellers, or direct sales.
+#
 class Order
 
 	attr_reader :quantity, :program_type, :amount_paid, :partner_name

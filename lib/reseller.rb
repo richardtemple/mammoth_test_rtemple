@@ -1,3 +1,6 @@
+##
+# Contains specific rules for Reseller Partners
+#
 class Reseller < Partner
 
 	def amount_due

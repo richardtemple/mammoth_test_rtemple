@@ -1,3 +1,6 @@
+##
+# This module is to help break out mundane methods needed to manage partner data.
+#
 module PartnerHelper
 	def self.determine_amount_charges(program_type: nil, partner_name: nil)
 		

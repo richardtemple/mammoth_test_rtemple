@@ -1,3 +1,6 @@
+##
+# Contains specific rules for Direct Sales
+#
 class Direct < Partner
 
 	def amount_due

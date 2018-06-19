@@ -1,3 +1,6 @@
+##
+# Contains specific rules for Affiliate Partners
+#
 class Affiliate < Partner
 
 	def amount_due

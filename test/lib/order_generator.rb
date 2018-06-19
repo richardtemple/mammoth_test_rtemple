@@ -1,5 +1,8 @@
 require_relative '../../lib/helpers/partner_helper'
 
+##
+# This is a fixture generator for the coding challenge
+#
 class OrderGenerator
 
 	PROGRAM_TYPES = {direct: ["Direct"], 

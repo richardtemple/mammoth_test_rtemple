@@ -1,3 +1,6 @@
+##
+# Parent class for Affiliate, Reseller, and Direct "partner" types.
+#
 class Partner
 	attr_reader :partner_name, :amount_due, :profit, :program_type
 	attr_accessor :orders
