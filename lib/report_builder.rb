@@ -10,7 +10,6 @@ require 'direct'
 
 class ReportBuilder
 
-
 	def initialize(order_collection)
 		@partners = []
 		order_collection.uniq {|order| order.partner_name}.each do |real_order|
@@ -83,9 +82,9 @@ class ReportBuilder
 		end
 		
 		report[:affiliates] = affiliates
-		report[:resellers] = resellers
-		report[:direct] = direct
-		report[:total] = affiliates + resellers + direct
+		report[:resellers]  = resellers
+		report[:direct]     = direct
+		report[:total]      = affiliates + resellers + direct
 
 		report
 	end

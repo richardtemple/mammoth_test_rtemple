@@ -86,7 +86,10 @@
   <section class="description">
     
 <p>Information received as an order from either affiliates, resellers, or
-direct sales.</p>
+direct sales. It&#39;s initialized with quantity, <a
+href="Order.html#attribute-i-program_type">#program_type</a>, <a
+href="Order.html#attribute-i-partner_name">#partner_name</a>, and
+amount_paid.</p>
 
   </section>
 
@@ -188,12 +191,12 @@ direct sales.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/order.rb, line 8</span>
+            <pre><span class="ruby-comment"># File lib/order.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">quantity</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">program_type</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">partner_name</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">amount_paid</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
-        <span class="ruby-ivar">@quantity</span> = <span class="ruby-identifier">quantity</span>
+        <span class="ruby-ivar">@quantity</span>     = <span class="ruby-identifier">quantity</span>
         <span class="ruby-ivar">@program_type</span> = <span class="ruby-identifier">program_type</span>
         <span class="ruby-ivar">@partner_name</span> = <span class="ruby-identifier">partner_name</span>
-        <span class="ruby-ivar">@amount_paid</span> = <span class="ruby-identifier">amount_paid</span>
+        <span class="ruby-ivar">@amount_paid</span>  = <span class="ruby-identifier">amount_paid</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

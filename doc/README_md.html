@@ -74,9 +74,15 @@
 
 <p>Coded by Richard Temple</p>
 
-<p>There are three main methods used as the interface to ReportBuilder:  *
-create_amount_to_bill_report  * create_partner_profit_report  *
-create_revenue_report</p>
+<p><code>ReportBuilder</code> is the main engine for these reports. It takes a
+collection of <a href="Order.html">Order</a> objects in the constructor,
+then the report creation methods will use that data to build the reports
+into a Ruby <code>Hash</code>.</p>
+
+<p>There are three main methods used as the interface to
+<code>ReportBuilder</code>:  * <code>create_amount_to_bill_report</code>  *
+<code>create_partner_profit_report</code>  *
+<code>create_revenue_report</code></p>
 </main>
 
 

@@ -134,7 +134,7 @@ of a collection of <a href="Order.html">Order</a> objects.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 13</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">order_collection</span>)
           <span class="ruby-ivar">@partners</span> = []
           <span class="ruby-identifier">order_collection</span>.<span class="ruby-identifier">uniq</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">order</span><span class="ruby-operator">|</span> <span class="ruby-identifier">order</span>.<span class="ruby-identifier">partner_name</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">real_order</span><span class="ruby-operator">|</span>
@@ -191,7 +191,7 @@ month</p>
 
           
           <div class="method-source-code" id="create_amount_to_bill_report-source">
-            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 36</span>
+            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_amount_to_bill_report</span>
         
         <span class="ruby-identifier">report</span> = {}
@@ -234,7 +234,7 @@ month</p>
 
           
           <div class="method-source-code" id="create_partner_profit_report-source">
-            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 53</span>
+            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_partner_profit_report</span>
         <span class="ruby-identifier">report</span> = {}
 
@@ -277,7 +277,7 @@ total revenue.</p>
 
           
           <div class="method-source-code" id="create_revenue_report-source">
-            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 69</span>
+            <pre><span class="ruby-comment"># File lib/report_builder.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_revenue_report</span>
         <span class="ruby-identifier">report</span> = {}
         <span class="ruby-identifier">affiliates</span> = <span class="ruby-value">0</span>
@@ -295,9 +295,9 @@ total revenue.</p>
         <span class="ruby-keyword">end</span>
         
         <span class="ruby-identifier">report</span>[<span class="ruby-value">:affiliates</span>] = <span class="ruby-identifier">affiliates</span>
-        <span class="ruby-identifier">report</span>[<span class="ruby-value">:resellers</span>] = <span class="ruby-identifier">resellers</span>
-        <span class="ruby-identifier">report</span>[<span class="ruby-value">:direct</span>] = <span class="ruby-identifier">direct</span>
-        <span class="ruby-identifier">report</span>[<span class="ruby-value">:total</span>] = <span class="ruby-identifier">affiliates</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">resellers</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">direct</span>
+        <span class="ruby-identifier">report</span>[<span class="ruby-value">:resellers</span>]  = <span class="ruby-identifier">resellers</span>
+        <span class="ruby-identifier">report</span>[<span class="ruby-value">:direct</span>]     = <span class="ruby-identifier">direct</span>
+        <span class="ruby-identifier">report</span>[<span class="ruby-value">:total</span>]      = <span class="ruby-identifier">affiliates</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">resellers</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">direct</span>
 
         <span class="ruby-identifier">report</span>
 <span class="ruby-keyword">end</span></pre>

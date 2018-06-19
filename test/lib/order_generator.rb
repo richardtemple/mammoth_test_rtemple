@@ -14,10 +14,10 @@ class OrderGenerator
 		orders = []
 
 		100.times do
-			quantity = rand(100) + 1
+			quantity     = rand(100) + 1
 			program_type = PROGRAM_TYPES.keys.sample
 			partner_name = PROGRAM_TYPES[program_type].sample 
-			amount_paid = determine_amount_paid(program_type: program_type, partner_name: partner_name, quantity: quantity)
+			amount_paid  = determine_amount_paid(program_type: program_type, partner_name: partner_name, quantity: quantity)
 			
 			orders << Order.new(quantity: quantity, 
 													program_type: program_type,
