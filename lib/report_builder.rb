@@ -4,6 +4,10 @@ require 'affiliate'
 require 'reseller'
 require 'direct'
 
+##
+# This is the main class for the coding challenge.  It takes data in the form of a collection
+# of Order objects.
+
 class ReportBuilder
 
 	def initialize(data)
