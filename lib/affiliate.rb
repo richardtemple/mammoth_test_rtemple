@@ -12,6 +12,6 @@ class Affiliate < Partner
 	end
 
 	def profit
-		(total_orders * amount_charges_per_item) - amount_due
+		(total_orders * @amount_charges_per_item) - amount_due
 	end
 end

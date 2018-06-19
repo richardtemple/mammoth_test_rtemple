@@ -1,10 +1,11 @@
 class Partner
-	attr_reader :partner_name, :amount_due, :profit
+	attr_reader :partner_name, :amount_due, :profit, :program_type
 	attr_accessor :orders
-	def initialize(partner_name:, orders: [], amount_charges_per_item:)
+	def initialize(partner_name:, orders: [], amount_charges_per_item:, program_type:)
 		@partner_name = partner_name
 		@orders = orders
 		@amount_charges_per_item = amount_charges_per_item
+		@program_type = program_type
 	end
 
 	def add_order(new_order)

@@ -1,7 +1,7 @@
 module PartnerHelper
 	def self.determine_amount_charges(program_type: nil, partner_name: nil)
 		
-		if (program_type == :affiliates)
+		if (program_type == :affiliate)
 			if partner_name == "ACompany"
 				price_per_widget = 75
 			elsif partner_name == "AnotherCompany"
@@ -9,7 +9,7 @@ module PartnerHelper
 			else
 				price_per_widget = 80
 			end
-		elsif (program_type == :resellers)
+		elsif (program_type == :reseller)
 			if partner_name == "ResellThis"
 				price_per_widget = 75
 			else
